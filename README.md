@@ -1,11 +1,105 @@
-# Another refactoring of the ol' personal website
+# Sam Stromberg's Personal Website
 
-Too cheap to pay for hosting, trying to do something marginally fancier than a couple files in an S3 bucket (the solution a couple iterations ago). 
+A personal website built with [Eleventy](https://www.11ty.dev/), a static site generator that accepts a variety of input formats and produces a site without client-side JavaScript. 
 
-So this is built with [Eleventy](https://www.11ty.dev/), a static site-builder that accepts a variety of input formats and produces a site without client-side JavaScript (which has aesthetic appeal, but also personally calls to me, a person who doesn't really know JS).
+Full credit for that decision goes to some former colleagues from [18F](https://18f.org/), opinionated engineers who regularly shared around thinkpieces and resources on how to build a lighterweight Web.
 
-## Credit
+## Features
 
-S/O to the several [18-F alumni](https://18f.org/about) engineers who suggested this framework, and the official [eleventy-base-blog](https://github.com/11ty/eleventy-base-blog) 'starter project' for providing more sample functionality that I'm intending to use (which is why this is a from-empty-directory project rather than a clone, hoping to do something additively minimal). 
+- **Static Site Generation**: Fast, self-contained HTML output
+- **Template Engine**: Trying out Nunjucks for templating; 11ty uses extensible templates (like python/jinja, which I'd encountered before)
+- **Kinda like a CMS already**: Eleventy's starter project, [eleventy-base-blog](https://github.com/11ty/eleventy-base-blog), underscores that you don't need to engage a whole CMS just to post a few blogs
+- **Responsive Design**: What kind of (former) govtech worker would I be if I didn't strive for form-factor independence and accessibility
 
-Does this mean stepping on some rakes, like when I think "huh I wonder why there's a directory with a 'filters.js' in it that has a bunch of datetime and array-indexing functions... hm, hopefully don't need it!"? Sure, but that's part of the "fun" of computers, right?
+## Did I write this with the help of some vibe coding?
+
+Yeah sorry :/  but now I have Better-informed Thoughts about it (will link to the blog once I post it). Also, I'm a PM not an engineer. Also-also, I enjoy being an editor sometimes, and nothing needs editing as much as 3000 lines of LLM-written code.
+
+As a pithy summary, I do see some use-case here, in the sense that LLMs don't do what brains do, but they do manage an analogue of "read some stackoverflow posts, paste a couple disparate chunks together, try to figure out why that didn't work", which is how I'd be programming anyway. But do I need billions of params and months of GPU cluster training-time to model that? Hopefully not!
+
+Using LLMs in other domains (creative work, parsing laws or rules) seems more like a category error, and hopefully the ebbing hype-tide will leave these high and dry. Note the (subtle?) distinction here, though -- there are other algorithmic/digital systems that can handle that latter laws-or-rules case _much_ better than an LLM, so letting 100 flowers bloom, a hundred model architectures contend will get us a lot further than trying to cram three flavors of the same architecture into everything.
+
+## Project Structure
+
+```
+my_site_11ty/
+├── content/           # Actual stuff (copy, blog posts)
+├── _includes/         # Extensible template files
+├── _data/            # Some metadata? Need to see what else is expected here
+├── public/           # Static assets (CSS, JS, images) rendered as-is
+├── _site/            # Generated output when site is built -- not in repo
+├── eleventy.config.js # Eleventy configuration -- a bunch of complexity I abstracted away(let the Copilot write)
+└── package.json      # Dependencies and scripts
+└── package-lock.json # Whatever versions actually loaded at build
+```
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (version 16 or higher)
+- npm
+
+### Installation
+
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+### Development
+
+Start the development server:
+```bash
+npm run dev
+```
+
+The site will be available at `http://localhost:8080`
+
+### Building
+
+Build the site for production:
+```bash
+npm run build
+```
+
+Generated files will be in the `_site/` directory.
+
+## Adding Content
+
+### New Pages
+
+Create new `.njk` files in the `content/` directory:
+
+```njk
+---
+layout: base.njk
+title: Page Title
+description: Page description
+---
+
+<h1>Page Content</h1>
+<p>Your content here...</p>
+```
+
+### Blog Posts
+
+Create new posts in `content/blog/` with the same frontmatter structure.
+
+### Styling
+
+CSS files go in `public/css/` and are automatically copied to the output.
+
+## Configuration
+
+The site is configured in `eleventy.config.js` with:
+- Input directory: `content/`
+- Output directory: `_site/`
+- Template includes: `_includes/`
+- Data files: `_data/`
+- Static assets: `public/`
+
+## License
+
+MIT License - this seems like a good one, right?
