@@ -6,19 +6,19 @@
     <title>{% if title %}{{ title }} - {% endif %}{{ site.title }}</title>
     <meta name="description" content="{{ description or site.description }}">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="/css/style.css">
 
+    <link rel="stylesheet" href="/css/style.css">
     <!-- RSS Feed -->
     <link rel="alternate" type="application/atom+xml" title="RSS Feed" href="/feed/feed.xml">
 </head>
+
 <body>
     <header>
         <nav>
             <a href="/">Home</a>
             <a href="/about">About</a>
             <a href="/blog">Blog</a>
+            <a href="/projects">Projects</a>
         </nav>
     </header>
     
@@ -29,7 +29,7 @@
     </main>
     
     <footer>
-        <p>&copy; 2024 {{ site.author.name }}. Built with <a href="https://www.11ty.dev/">Eleventy</a>.</p>
+        <p>&copy; 2025 {{ site.author.name }}. Built with <a href="https://www.11ty.dev/">Eleventy</a>.</p>
     </footer>
 </body>
 </html>
