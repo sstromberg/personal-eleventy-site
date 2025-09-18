@@ -2,7 +2,7 @@
 layout: layouts/post.njk
 title: California's Proposed Gerrymander
 description: It's a bad idea
-date: 2025-09-10T00:00:00-8:00
+date: 2025-09-18T00:00:00-8:00
 tags: ["curr events"]
 ---
 

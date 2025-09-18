@@ -23,9 +23,9 @@ Using LLMs in other domains (creative work, parsing laws or rules) seems more li
 
 ```
 my_site_11ty/
-├── content/           # Actual stuff (copy, blog posts)
-├── _includes/         # Extensible template files
-├── _data/            # Some metadata? Need to see what else is expected here
+├── content/          # Actual stuff (copy, blog posts)
+├── _includes/        # Extensible template files
+├── _data/            # Some metadata? Need to review some more examples to see what's suposed to be here
 ├── public/           # Static assets (CSS, JS, images) rendered as-is
 ├── _site/            # Generated output when site is built -- not in repo
 ├── eleventy.config.js # Eleventy configuration -- a bunch of complexity I abstracted away(let the Copilot write)
@@ -35,24 +35,15 @@ my_site_11ty/
 
 ## Getting Started
 
-### Prerequisites
-
-- Node.js (version 16 or higher)
-- npm
-
 ### Installation
 
-1. Clone the repository
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+Clone the repo
 
 ### Development
 
 Start the development server:
 ```bash
-npm run dev
+npx @11ty/eleventy --serve
 ```
 
 The site will be available at `http://localhost:8080`
@@ -61,7 +52,7 @@ The site will be available at `http://localhost:8080`
 
 Build the site for production:
 ```bash
-npm run build
+npx @11ty/eleventy
 ```
 
 Generated files will be in the `_site/` directory.
@@ -70,7 +61,7 @@ Generated files will be in the `_site/` directory.
 
 ### New Pages
 
-Create new `.njk` files in the `content/` directory:
+Create new `.njk` files (or using up templating languages) in the `content/` directory:
 
 ```njk
 ---
@@ -85,21 +76,21 @@ description: Page description
 
 ### Blog Posts
 
-Create new posts in `content/blog/` with the same frontmatter structure.
+Create new posts in `content/blog/` with the same frontmatter structure, using the post.njk layout; I've been writing them in markdown (.md) because the heavy lifting on style is done by the templates, and it's easier to write in something that looks very close to just text.
 
 ### Styling
 
-CSS files go in `public/css/` and are automatically copied to the output.
+CSS files go in `public/css/` and are copied to the output as-is. You can use plugins to handle more complicated (component-wise multiple files, etc.) implementations, and optimize for page-loading, but I was having enough trouble with a single stylesheet :shrug:
 
 ## Configuration
 
 The site is configured in `eleventy.config.js` with:
 - Input directory: `content/`
 - Output directory: `_site/`
-- Template includes: `_includes/`
+- Template includes: `_includes/` (layouts are in here)
 - Data files: `_data/`
 - Static assets: `public/`
 
 ## License
 
-MIT License - this seems like a good one, right?
+MIT License - this seems like a good one, right? I dunno, I also put a copyright in the footer.

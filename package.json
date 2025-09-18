@@ -10,15 +10,19 @@
   },
   "dependencies": {
     "@11ty/eleventy": "^3.0.0",
-    "@11ty/eleventy-plugin-rss": "^1.2.0",
-    "@11ty/eleventy-plugin-syntaxhighlight": "^4.2.0",
+    "@11ty/eleventy-img": "^4.0.2",
     "@11ty/eleventy-navigation": "^0.3.0",
-    "@11ty/eleventy-img": "^4.0.0"
+    "@11ty/eleventy-plugin-rss": "^1.2.0",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^4.2.0"
   },
   "devDependencies": {
     "sharp": "^0.33.0"
   },
-  "keywords": ["eleventy", "static-site", "personal-website"],
+  "keywords": [
+    "eleventy",
+    "static-site",
+    "personal-website"
+  ],
   "author": "Sam Stromberg",
   "license": "MIT"
 }

@@ -34,4 +34,16 @@ export default function(eleventyConfig) {
 			.replace(/[\s_-]+/g, '-')
 			.replace(/^-+|-+$/g, '');
 	});
-}
+
+	eleventyConfig.addFilter("getKeys", target => {
+		return Object.keys(target);
+	});
+
+	eleventyConfig.addFilter("filterTagList", function filterTagList(tags) {
+		return (tags || []).filter(tag => ["all", "posts"].indexOf(tag) === -1);
+	});
+
+	eleventyConfig.addFilter("sortAlphabetical", strings =>
+		(strings || []).sort((b, a) => b.localeCompare(a))
+	);
+};

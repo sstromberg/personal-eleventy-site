@@ -26,13 +26,11 @@ export default async function(eleventyConfig) {
 	// Copy the contents of the `public` folder to the output folder
 	// For example, `./public/css/` ends up in `_site/css/`
 	eleventyConfig
-		.addPassthroughCopy({
-			"./public/": "/"
-		})
+		.addPassthroughCopy("./public/")
 		.addPassthroughCopy("./content/feed/pretty-atom-feed.xsl");
 
 	// Watch CSS files
-	eleventyConfig.addWatchTarget("css/**/*.css");
+	eleventyConfig.addWatchTarget("css/*.css");
 	// Watch images for the image pipeline.
 	eleventyConfig.addWatchTarget("content/**/*.{svg,webp,png,jpg,jpeg,gif}");
 
@@ -62,13 +60,11 @@ export default async function(eleventyConfig) {
 	eleventyConfig.addPlugin(InputPathToUrlTransformPlugin);
 
 
-
 	// Image optimization: https://www.11ty.dev/docs/plugins/image/#eleventy-transform
 	eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
 		// Output formats for each image.
 		formats: ["avif", "webp", "auto"],
-
-		// widths: ["auto"],
+		widths: ["auto"],
 
 		failOnError: false,
 		htmlOptions: {

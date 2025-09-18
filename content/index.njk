@@ -1,19 +1,29 @@
 ---
-layout: base.njk
+layout: layouts/base.njk
 title: Home
 description: Sam Stromberg's personal website
 ---
 
 <h1>Welcome to My Site</h1>
 
-<p>Hello! I'm Sam Stromberg, and this is my personal website built with Eleventy.</p>
-{# throw a photo up probably #}
-<div><img src="" alt=""></div>
+<div class="profile-pic-wrapper">
+    <img src="../public/images/profile-pic.jpg" alt="a photo of me" class="profile-pic" eleventy:widths="240" eleventy:output="./images">
+</div>
 
-<p>Download <a href="/public/resume.pdf" download="Sam_Stromberg_Resume">my resume</a>.</p>
+<p>Hello! I'm Sam Stromberg, and this is my personal website built with Eleventy.</p>
+
+<p>Download <a href="./public/resume.pdf" download="Sam_Stromberg_Resume">my resume</a>.</p>
 
 <h2>Recent Updates</h2>
 <ul>
+    <li>New content, 9/18/25
+        <ul>
+            <li>Learned more than I expected about serving images in the responsive-design era because the hard-coded img tags I was trying to use were being processed "for my convenience" by Eleventy</li>
+            <li>Wrote a blog about Prop 50, California's proposed redistricting</li>
+            <li>Added some past-work writeups to the <a href="/projects">Projects</a> page</li>
+        </ul>
+    </li>
+
     <li>Initial release, 8/29/25
         <ul>
             <li>Wrote some stuff for the site</li>
