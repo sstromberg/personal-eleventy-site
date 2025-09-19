@@ -92,3 +92,7 @@ Thumbs.db
 
 # Eleventy specific
 .eleventy-cache/
+
+# Azurite-generated files for some reason
+__azurite_db_blob__.json
+__azurite_db_blob_extent__.json

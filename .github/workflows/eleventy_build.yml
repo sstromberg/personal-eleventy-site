@@ -27,10 +27,13 @@ jobs:
           cache: 'npm'
       - name: Setup Pages
         uses: actions/configure-pages@v4
-      - name: Install dependencies & build
+      - name: Install dependencies
         run: |
           npm ci
-          npx @11ty/eleventy
+      - name: Clean _site directory
+        run: rm -rf ./_site
+      - name: Build site
+        run: npx @11ty/eleventy
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         with:
