@@ -30,7 +30,7 @@ export default async function(eleventyConfig) {
 		.addPassthroughCopy("./public/")
 		.addPassthroughCopy("./content/feed/pretty-atom-feed.xsl")
 		.addPassthroughCopy("src/CNAME")
-		.addPassthroughCopy({ ".public/favicon.ico" : "/" });
+		.addPassthroughCopy({ "./public/favicon.ico" : "/" });
 
 	// Watch CSS files
 	eleventyConfig.addWatchTarget("css/*.css");
