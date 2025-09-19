@@ -35,7 +35,8 @@ jobs:
           mkdir -p ./_site
       - name: Build site
         run: npx @11ty/eleventy
-        env: ELEVENTY_RUN_MODE: build
+        env: 
+          ELEVENTY_RUN_MODE: build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         with:
