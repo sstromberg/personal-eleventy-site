@@ -3,6 +3,7 @@ import pluginSyntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import pluginNavigation from "@11ty/eleventy-navigation";
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import { IdAttributePlugin, InputPathToUrlTransformPlugin } from "@11ty/eleventy";
+import feedPlugin from "@11ty/eleventy-plugin-rss";
 
 import pluginFilters from "./_config/filters.js";
 
@@ -27,7 +28,8 @@ export default async function(eleventyConfig) {
 	// For example, `./public/css/` ends up in `_site/css/`
 	eleventyConfig
 		.addPassthroughCopy("./public/")
-		.addPassthroughCopy("./content/feed/pretty-atom-feed.xsl");
+		.addPassthroughCopy("./content/feed/pretty-atom-feed.xsl")
+		.addPassthroughCopy("src/CNAME");
 
 	// Watch CSS files
 	eleventyConfig.addWatchTarget("css/*.css");
@@ -59,13 +61,11 @@ export default async function(eleventyConfig) {
 	eleventyConfig.addPlugin(HtmlBasePlugin);
 	eleventyConfig.addPlugin(InputPathToUrlTransformPlugin);
 
-
 	// Image optimization: https://www.11ty.dev/docs/plugins/image/#eleventy-transform
 	eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
 		// Output formats for each image.
 		formats: ["avif", "webp", "auto"],
 		widths: ["auto"],
-
 		failOnError: false,
 		htmlOptions: {
 			imgAttributes: {
@@ -74,10 +74,27 @@ export default async function(eleventyConfig) {
 				decoding: "async",
 			}
 		},
-
 		sharpOptions: {
 			animated: true,
 		},
+	});
+
+	eleventyConfig.addPlugin(feedPlugin, {
+		type: "atom",
+		outputPath: "/feed/feed.xml",
+		stylesheet: "pretty-atom-feed.xsl",
+		collection: {
+			name: "blog posts",
+			limit: 10,
+		},
+		metadata: {
+			language: "en",
+			title: "Sam Stromberg's blog",
+			base: "https://samstromberg.me/blog/",
+			author: {
+				name: "Sam Stromberg"
+			}
+		}
 	});
 
 	// Filters

@@ -1,7 +1,7 @@
 ---
 title: First Blog Post
 description: As is traditional
-date: 2025-08-29
+date: 2025-08-29T00:00:00-8:00
 tags:
 ---
 
