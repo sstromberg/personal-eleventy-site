@@ -28,12 +28,14 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Install dependencies
-        run: |
-          npm ci
+        run: npm ci
       - name: Clean _site directory
-        run: rm -rf ./_site
+        run: |
+          rm -rf ./_site
+          mkdir -p ./_site
       - name: Build site
         run: npx @11ty/eleventy
+        env: ELEVENTY_RUN_MODE: build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         with:
