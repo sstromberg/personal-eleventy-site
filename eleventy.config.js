@@ -4,6 +4,7 @@ import pluginNavigation from "@11ty/eleventy-navigation";
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import { IdAttributePlugin, InputPathToUrlTransformPlugin } from "@11ty/eleventy";
 import feedPlugin from "@11ty/eleventy-plugin-rss";
+import footnote_plugin from "markdown-it-footnote";
 
 import pluginFilters from "./_config/filters.js";
 
@@ -16,10 +17,9 @@ export default async function(eleventyConfig) {
 	// Drafts, see also _data/eleventyDataSchema.js
 	eleventyConfig.addPreprocessor("drafts", "*", (data, content) => {
 		if (data.draft) {
-      data.title = `${data.title} (draft)`;
-    }
-
-		if(data.draft && process.env.ELEVENTY_RUN_MODE === "build") {
+			data.title = `${data.title} (draft)`;
+    	}
+		if (data.draft && process.env.ELEVENTY_RUN_MODE === "build") {
 			return false;
 		}
 	});
@@ -97,6 +97,9 @@ export default async function(eleventyConfig) {
 			}
 		}
 	});
+
+	// adding footnotes to Markdown (for blog)
+	eleventyConfig.amendLibrary("md", (mdLib) => mdLib.use(footnote_plugin));
 
 	// Filters
 	eleventyConfig.addPlugin(pluginFilters);
