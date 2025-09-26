@@ -51,6 +51,7 @@ I wouldn't go so far as to predict this will "solve" the deep, intractable probl
 In the long term, this could be a trial run -- definitely not suggesting CMotUS be a hereditary position -- but similar to, like, Time Magazine Person of the Year, People's Sexiest Man Alive, or Poet Laureate, this would give us precedent to name-and-fame someone who has captured America's attention... while putting them safely arm's-length away from any programs or institutions people actually rely on.
 
 ### Notes
+
 [^1]:  Sparing us from that opinion-cycle of takes would be a blessing in itself.
 
 [^2]: I'm aware that some pronounce it like 'scawn', but [even the UK](https://yougov.co.uk/society/articles/50339-the-scone-pronunciation-map-of-britain) is divided on the merits, don't @ me.
