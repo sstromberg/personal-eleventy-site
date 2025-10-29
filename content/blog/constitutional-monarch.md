@@ -4,6 +4,7 @@ title: Constitutional monarchy
 description: hashtag... kings?
 date: 2025-09-30T00:00:00-8:00
 tags: ["policy"]
+draft: true
 ---
 
 ## Probably a dumb idea
